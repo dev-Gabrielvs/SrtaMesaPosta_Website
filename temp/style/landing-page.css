@@ -166,6 +166,7 @@ main {
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 15px;
     height: 450px;
     gap: 60px;
 }
@@ -245,6 +246,71 @@ main {
 /* End of section highlights */
 
 
+#father-day {
+    background-color: #E0D7CF;
+    padding: 15px;
+}
+#father-day h3 {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+#father-content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.father-themed-image {
+    height: 400px;
+    width: 300px;
+    border: 1px solid var(--detail-color2);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.201);
+}
+
+.father-cards {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 40px;
+    margin-right: 80px;
+}
+
+.father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 260px;
+    border: 1px solid black;
+    padding: 7px;
+    gap: 8px;
+}
+
+.image-father-card {
+    height: 300px;
+}
+
+.footer-father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.188);
+    height:60px;
+    background-color: var(--detail-color1);
+}
+
+@media screen and (max-width:1220px) {
+    #highlights {
+        height: 910px;
+    }
+
+    .featured-cards {
+        margin-top: 20px;
+    }
+}
 
 
 
