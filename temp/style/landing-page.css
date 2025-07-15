@@ -12,12 +12,15 @@
 }
 
 * {
-    background-color: var(--bg-color);
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: var(--font-over);
     font-weight: 500;
+    font-family: var(--font-over);
+}
+
+body, html {
+    background-color: var(--bg-color);
 }
 
 header {
@@ -25,6 +28,7 @@ header {
     left: 0;
     top: 0;
     width: 100%;
+    background-color: var(--bg-color);
 }
 header h4 {
     text-align: center;
@@ -48,17 +52,20 @@ form{
     padding: 5px;
     border-radius: 10px;
     width: 300px;
+    height: 40px;
 }
+
 
 form input[type="text"] {
     background-color: transparent;
     border: none;
-    outline: none; 
-    flex: auto;
-    padding: 5px;
+    outline: none;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
     color: var(--text-color);
+    font-size: 14.5px;
 }
-
 
 #submit {
     width: 25px;
@@ -70,8 +77,8 @@ form input[type="text"] {
 
 #submit:hover {
     cursor: pointer;
-    width: 27px;
-    height: 26px;
+    width: 28px;
+    height: 27px;
     transition: .3s;
 }
 
@@ -97,6 +104,11 @@ nav {
     align-items: center;
 }
 
+.item a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
 header ul {
     display: flex;
     align-items: center;
@@ -115,16 +127,82 @@ header ul a {
     margin: 0px 35px;
 }
 
+header ul a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
 header ul li:hover {
     cursor: pointer;
 }
 
+main {
+    text-align: justify ;
+    margin-top: 137px;
+}
 #carrossel {
-    height: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
     background-color: white;
 }
 
-#carrossel h1 {
-    color: black;
-    font-size: 50px;
+.featured-cards {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+}
+
+#highlights h1 {
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px #7E6C5C;
+    font-weight: bolder;
+}
+
+.highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    width: 260px;
+
+}
+
+.image-highlight-card {
+    height: 310px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.footer-highlight-card {
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.188);
+    height:60px;
+    background-color: var(--detail-color1);
+}
+
+.footer-highlight-card:hover {
+    height: 100px;
+    transition: .2s ease;
+}
+
+
+
+.footer-highlight-card p {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.footer-highlight-card .legend {
+    font-weight: 400;
+}
+
+.footer-highlight-card .price {
+    font-size: 20px;
 }
