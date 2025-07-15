@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
+
+/* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Creation of Variables */
 :root {
     --bg-color:#DDD1C4;
     --detail-color1:#CDB8A4;
@@ -11,20 +14,27 @@
     --font-over:"Montserrat", sans-serif;
 }
 
+/* Reset CSS */
 * {
-    background-color: var(--bg-color);
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: var(--font-over);
     font-weight: 500;
+    font-family: var(--font-over);
 }
 
+/* Configuration of bg */
+body, html {
+    background-color: var(--bg-color);
+}
+
+/* Begin of the Hedaer */
 header {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
+    background-color: var(--bg-color);
 }
 header h4 {
     text-align: center;
@@ -48,17 +58,20 @@ form{
     padding: 5px;
     border-radius: 10px;
     width: 300px;
+    height: 40px;
 }
+
 
 form input[type="text"] {
     background-color: transparent;
     border: none;
-    outline: none; 
-    flex: auto;
-    padding: 5px;
+    outline: none;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
     color: var(--text-color);
+    font-size: 14.5px;
 }
-
 
 #submit {
     width: 25px;
@@ -70,8 +83,8 @@ form input[type="text"] {
 
 #submit:hover {
     cursor: pointer;
-    width: 27px;
-    height: 26px;
+    width: 28px;
+    height: 27px;
     transition: .3s;
 }
 
@@ -97,6 +110,11 @@ nav {
     align-items: center;
 }
 
+.item a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
 header ul {
     display: flex;
     align-items: center;
@@ -115,16 +133,185 @@ header ul a {
     margin: 0px 35px;
 }
 
+header ul a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
 header ul li:hover {
     cursor: pointer;
 }
 
+/* End of the Header */
+
+
+/* Begin of the Main */
+main {
+    text-align: justify ;
+    margin-top: 137px;
+}
 #carrossel {
-    height: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
     background-color: white;
 }
 
-#carrossel h1 {
-    color: black;
-    font-size: 50px;
+/* Start of section highlights */
+
+.featured-cards {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    height: 450px;
+    gap: 60px;
 }
+
+#highlights h1 {
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px #7E6C5C;
+    font-weight: bolder;
+}
+
+.highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+    width: 260px;
+}
+
+.highlight-card:hover {
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.237);
+}
+
+.image-highlight-card {
+    height: 310px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.footer-highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.188);
+    height:60px;
+    background-color: var(--detail-color1);
+}
+
+.highlight-card:hover .footer-highlight-card {
+    height: 100px;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);;
+}
+
+.highlight-card:hover #details-button {
+    display: block;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);  
+}
+
+.footer-highlight-card .legend {
+    font-weight: 400;
+}
+
+.footer-highlight-card .price {
+    font-size: 20px;
+}
+
+#details-button {
+    width: 85%;
+    height: 40px;
+    margin-top: 5px;
+    display: none;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+
+#details-button:hover {
+    cursor: pointer;
+    background-color: var(--detail-color1);
+    color: var(--detail-color3)
+}
+
+/* End of section highlights */
+
+
+#father-day {
+    background-color: #E0D7CF;
+    padding: 15px;
+}
+#father-day h3 {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+#father-content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.father-themed-image {
+    height: 400px;
+    width: 300px;
+    border: 1px solid var(--detail-color2);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.201);
+}
+
+.father-cards {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 40px;
+    margin-right: 80px;
+}
+
+.father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 260px;
+    border: 1px solid black;
+    padding: 7px;
+    gap: 8px;
+}
+
+.image-father-card {
+    height: 300px;
+}
+
+.footer-father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.188);
+    height:60px;
+    background-color: var(--detail-color1);
+}
+
+@media screen and (max-width:1220px) {
+    #highlights {
+        height: 910px;
+    }
+
+    .featured-cards {
+        margin-top: 20px;
+    }
+}
+
+
+
+/* End of the Main */
