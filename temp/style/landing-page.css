@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+@media screen and (max-width:1220px) {
+    #highlights {
+        height: 910px;
+    }
+
+    .featured-cards {
+        margin-top: 20px;
+    }
+}
+
 
 /* Import Font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -167,7 +177,7 @@ main {
     align-items: center;
     justify-content: center;
     margin-top: 15px;
-    height: 450px;
+    height: 440px;
     gap: 60px;
 }
 
@@ -191,6 +201,7 @@ main {
 
 .highlight-card:hover {
     box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.237);
+    cursor: pointer;
 }
 
 .image-highlight-card {
@@ -210,10 +221,12 @@ main {
 
 .highlight-card:hover .footer-highlight-card {
     height: 100px;
-    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+
 }
 
-.highlight-card:hover #details-button {
+.highlight-card:hover .details-button {
     display: block;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);  
 }
@@ -226,7 +239,7 @@ main {
     font-size: 20px;
 }
 
-#details-button {
+.details-button {
     width: 85%;
     height: 40px;
     margin-top: 5px;
@@ -237,7 +250,7 @@ main {
     border-radius: 5px;
 }
 
-#details-button:hover {
+.details-button:hover {
     cursor: pointer;
     background-color: var(--detail-color1);
     color: var(--detail-color3)
@@ -258,38 +271,38 @@ main {
 
 #father-content {
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
     margin-top: 15px;
 }
 
 .father-themed-image {
-    height: 400px;
-    width: 300px;
+    height: 410px;
+    width: 310px;
+    margin-bottom: 20px;
     border: 1px solid var(--detail-color2);
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.201);
 }
 
-.father-cards {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: 40px;
-    margin-right: 80px;
-}
 
 .father-card {
+    align-self: center;
     display: flex;
     flex-flow: column nowrap;
-    width: 260px;
+    width: 300px;
     border: 1px solid black;
     padding: 7px;
     gap: 8px;
+    margin-top: 20px;
+
+}
+
+.father-card:hover {
+    cursor: pointer;
 }
 
 .image-father-card {
-    height: 300px;
+    height: 310px;
 }
 
 .footer-father-card {
@@ -302,15 +315,19 @@ main {
     background-color: var(--detail-color1);
 }
 
-@media screen and (max-width:1220px) {
-    #highlights {
-        height: 910px;
-    }
-
-    .featured-cards {
-        margin-top: 20px;
-    }
+.father-card:hover .footer-father-card {
+    height: 90px;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.father-card:hover .details-button {
+    height: 35px;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)
+}
+
+
+
 
 
 
