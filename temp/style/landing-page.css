@@ -385,7 +385,7 @@ main {
 
 #valentine-content {
     display: flex;
-    flex-flow: row-reverse wrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-evenly;
     margin-top: 15px;
@@ -545,7 +545,35 @@ main {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)
 }
 
+/* End Natal Section */
 
+/* Footer Start */
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #9E846E;
+    height: 300px;
+}
+
+footer .insert-email {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px;
+
+}
+
+.insert-email {
+    color: var(--bg-color);
+}
+
+.insert-email h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
 
 
 
