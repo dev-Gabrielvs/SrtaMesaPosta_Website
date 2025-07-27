@@ -547,6 +547,8 @@ main {
 
 /* End Natal Section */
 
+/* End of the Main */
+
 /* Footer Start */
 footer {
     display: flex;
@@ -715,9 +717,11 @@ footer .information {
     color: var(--bg-color);
 }
 
+/* Footer End */
 
 
 
 
-/* End of the Main */
+
+
 
