@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Creation of Variables */
+:root {
+    --bg-color:#DDD1C4;
+    --detail-color1:#CDB8A4;
+    --detail-color2:#9E846E;
+    --detail-color3:#E9E2DC;
+    --text-color:#7E6C5C;
+    --font-over:"Montserrat", sans-serif;
+}
+
+/* Reset CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--font-over);
+}
+
+#logo {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 120px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--detail-color3);
+    width: 800px;
+    height: 750px;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.158);
+    border-radius: 20px 40px 20px 20px;
+}
+
+main h1 {
+    font-weight: bolder;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-color);
+}
+
+.top {
+    align-self: flex-start;
+    width: 522px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.aside {
+    height: 100%;
+    width: 80px;
+    background-color: var(--detail-color1);
+    border-radius: 0px 40px 20px 0px;
+}
+
+
+
