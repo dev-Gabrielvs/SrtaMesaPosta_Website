@@ -19,6 +19,7 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: var(--font-over);
+    text-decoration: none;
 }
 
 #logo {
@@ -38,10 +39,11 @@ main {
     width: 800px;
     height: 750px;
     box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.158);
-    border-radius: 20px 40px 20px 20px;
+    border-radius: 25px 50px 25px 25px;
 }
 
 main h1 {
+    text-transform: uppercase;
     font-weight: bolder;
     color: transparent;
     -webkit-text-stroke: 1px var(--text-color);
@@ -49,19 +51,128 @@ main h1 {
 
 .top {
     align-self: flex-start;
-    width: 522px;
+    width: 547px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
 }
 
-.aside {
-    height: 100%;
-    width: 80px;
-    background-color: var(--detail-color1);
-    border-radius: 0px 40px 20px 0px;
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+.form form {
+    position: relative;
+    width: 380px;
+}
+
+.input-group {
+    position: relative;
+    margin-top: 20px;
+}
+
+.input-group input {
+    width: 100%;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    color: var(--text-color);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form form input {
+    height: 40px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    padding: 5px;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.input-group input:focus + label, .input-group input:valid + label {
+    font-size: 0.8em;
+    top: -10px;
+    left: 5px;
+    font-weight: 600;
+}
+
+.form form input[type="submit"] {
+    margin-left: 14px;
+    margin-top: 15px;
+    width: 350px;
+    height: 30px;
+    border: 1px solid var(--text-color);
+    background-color: var(--detail-color1);
+    transition: all .2s ease;
+    font-weight: 500;
+}
+
+.form form input[type="submit"]:hover {
+    border: 1px solid var(--detail-color1);
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    transition: all .2s ease;
+}
+
+.form form p a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+.form form p{
+    margin-left: 100px;
+    margin-top: 15px;
+}
+
+.form form p a:hover {
+    text-decoration: underline;
+    color: var(--detail-color2);
+}
+
+.aside {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
+    width: 70px;
+    background-color: var(--detail-color1);
+    border-radius: 0px 50px 25px 0px;
+}
+
+.aside h3 {
+    font-weight: 300;
+    transform: rotate(270deg);
+    width: 279px;
+    height: 74px;
+    margin-left: 30px;
+    margin-bottom: 120px;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.aside h3 a {
+    color: var(--detail-color3);
+}
+
+.aside h3 a:hover {
+    text-decoration: underline;
+}
+
+.aside p {
+    font-size: 50px;
+    color: var(--detail-color3);
+}
+
 
 
 
