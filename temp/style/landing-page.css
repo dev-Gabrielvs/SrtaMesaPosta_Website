@@ -290,7 +290,6 @@ main {
     align-items: center;
     justify-content: space-evenly;
     margin-top: 15px;
-    height: 460px;
 }
 
 .father-themed-image {
@@ -391,7 +390,6 @@ main {
     align-items: center;
     justify-content: space-evenly;
     margin-top: 15px;
-    height: 460px;
 }
 
 .valentine-themed-image {
@@ -492,7 +490,6 @@ main {
     align-items: center;
     justify-content: space-evenly;
     margin-top: 15px;
-    height: 460px;
 }
 
 .natal-themed-image {
@@ -618,7 +615,6 @@ footer form input[type="submit"]:hover {
 }
 
 footer .information {
-    width: 1400px;
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
@@ -631,6 +627,7 @@ footer .information {
     border-color: black;
     padding: 10px 0px;
     color: var(--bg-color);
+    gap: 80px;
 }
 
 .box-information li img {
