@@ -1,0 +1,1140 @@
+@charset "UTF-8";
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Creation of Variables */
+:root {
+    --bg-color:#DDD1C4;
+    --detail-color1:#CDB8A4;
+    --detail-color2:#9E846E;
+    --detail-color3:#E9E2DC;
+    --text-color:#7E6C5C;
+    --font-over:"Montserrat", sans-serif;
+}
+
+/* Reset CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-family: var(--font-over);
+}
+
+/* Configuration of bg */
+body, html {
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+/* --- Header (Comum a Ambas as Páginas) --- */
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Adicionado sombra para elevação */
+    padding-bottom: 5px; /* Adicionado padding-bottom para espaço */
+}
+header h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    font-weight: bold;
+    padding: 2px;
+    white-space: nowrap; /* Impede a quebra de linha forçada */
+    overflow: hidden; /* Oculta qualquer conteúdo que exceda a largura */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+    letter-spacing: normal; /* Garante que o espaçamento entre letras seja o padrão */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#logo {
+    width: 120px;
+}
+
+nav form{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--detail-color3);
+    padding: 5px;
+    border-radius: 10px;
+    width: 300px; /* Mantido como você especificou */
+    height: 40px;
+    box-sizing: border-box; /* Garante que padding está incluso na largura */
+}
+
+nav form input[type="text"] {
+    background-color: transparent;
+    border: none;
+    outline: none; /* Remove a borda de foco padrão */
+    width: calc(100% - 35px); /* Ajustado para deixar espaço para o botão de submit */
+    height: 30px; /* Ajustado para caber dentro do form de 40px */
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 14.5px;
+    padding-left: 10px;
+}
+
+nav form input[type="text"]:focus {
+    outline: none; /* Garante que não apareça borda no foco */
+}
+
+#submit {
+    width: 25px;
+    height: 25px;
+    border: none;
+    outline: none;
+    background: url(../images/search.png) center/cover no-repeat;
+    cursor: pointer;
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+#submit:hover {
+    width: 28px;
+    height: 27px;
+    transition: .3s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 15px;
+    padding: 10px 0; /* Adicionado padding vertical para nav */
+}
+
+.items-nav {
+    display: flex;
+    gap:20px;
+}
+
+.item a {
+    color: #7E6C5C;
+    text-decoration: none;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.item a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-top: 3px;
+    border-width: 1px 0px 0px 0px;
+    border-color: var(--detail-color2);
+    border-style: solid;
+    padding: 5px;
+    background-color: var(--detail-color3); /* Adicionado background para esta barra */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05); /* Adicionado sombra leve */
+}
+
+header ul a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0px 35px;
+    padding: 5px 0; /* Adicionado padding vertical para os links do menu */
+}
+
+header ul a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
+header ul li:hover {
+    cursor: pointer;
+}
+
+/* --- Main Section Common Styling --- */
+/* Ajustado o margin-top para compensar a altura do novo header fixo */
+main {
+    margin-top: 150px; /* Ajuste este valor se o header mudar de altura */
+    padding: 40px 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* --- Seções Específicas da Landing Page --- */
+#carrossel {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    background-color: white;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 10px;
+}
+
+#highlights h1, .section-title-product {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-color);
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+.featured-cards {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 15px;
+    height: auto;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    background-color: white;
+    width: 260px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+.image-highlight-card {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.footer-highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    background-color: var(--detail-color1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.highlight-card .footer-highlight-card {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer-highlight-card .legend {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.footer-highlight-card .price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--detail-color2);
+    margin-bottom: 10px;
+}
+
+#details-button {
+    width: 85%;
+    height: 40px;
+    margin-top: 5px;
+    display: block;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#details-button:hover {
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    border-color: var(--detail-color2);
+}
+
+#father-day {
+    background-color: #E0D7CF;
+    padding: 40px 20px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+#father-day h3 {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+#father-content {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 25px;
+}
+
+.father-themed-image {
+    height: 400px;
+    width: 320px;
+    border: 3px solid var(--detail-color2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.father-cards {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 260px;
+    border: 1px solid var(--detail-color1);
+    padding: 7px;
+    gap: 8px;
+    background-color: white;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.father-card:hover {
+    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+
+.image-father-card {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.footer-father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    background-color: var(--detail-color1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 0px 0px 8px 8px;
+    color: var(--text-color);
+}
+
+
+/* --- Seções Específicas da Página de Produto --- */
+#product-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 40px;
+    background-color: var(--detail-color3);
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 60px;
+}
+
+.product-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 550px;
+}
+
+#main-product-image {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.thumbnail:hover, .thumbnail.active {
+    border-color: var(--detail-color2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.product-info {
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Ajustado para um espaçamento mais uniforme */
+}
+
+/* Alteração para o h1 problemático */
+.product-info h1 {
+    font-size: 2.8em;
+    color: var(--text-color);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    text-align: left !important;
+    letter-spacing: 0em !important; /* Definido explicitamente para 0 */
+    word-spacing: 0em !important; /* Definido explicitamente para 0 */
+    white-space: normal !important;
+    max-width: 100%; /* Garante que o container do h1 não está sendo esticado demais */
+    display: inline-block; /* Altera para inline-block para que o text-align: left seja mais eficaz em uma linha curta */
+}
+
+.price-options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaçamento entre os diferentes preços */
+    margin-bottom: 10px; /* Espaço abaixo do bloco de preços */
+}
+
+.price-label {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: -3px; /* Aproxima o rótulo do preço */
+}
+
+.product-price {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--detail-color2);
+    letter-spacing: 0.5px;
+    margin-bottom: 0; /* Remove margem inferior para evitar espaçamento duplo */
+}
+
+.wholesale-price, .pix-price {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-color); /* Cor para os preços de atacado/pix */
+    margin-bottom: 0;
+}
+
+.product-description-short {
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-top: 10px; /* Espaço acima da descrição */
+}
+
+.product-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.product-options label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1.05em;
+}
+
+.product-options select,
+.product-options input[type="number"] {
+    padding: 12px 18px;
+    border: 1px solid var(--detail-color1);
+    border-radius: 8px;
+    font-size: 1.05em;
+    color: var(--text-color);
+    background-color: white;
+    width: 100%;
+    max-width: 250px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-options select:focus,
+.product-options input[type="number"]:focus {
+    border-color: var(--detail-color2);
+    box-shadow: 0 0 0 3px rgba(158, 132, 110, 0.2);
+}
+
+.add-to-cart-button {
+    width: 90%;
+    max-width: 350px;
+    padding: 18px 25px;
+    margin-top: 30px;
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-to-cart-button:hover {
+    background-color: var(--detail-color1);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.shipping-calculator {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shipping-calculator label {
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.cep-input-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.cep-input-group input[type="text"] {
+    flex-grow: 1; /* Permite que o input preencha o espaço disponível */
+    padding: 12px 18px;
+    border: 1px solid var(--detail-color1);
+    border-radius: 8px;
+    font-size: 1.05em;
+    color: var(--text-color);
+    background-color: white;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cep-input-group input[type="text"]:focus {
+    border-color: var(--detail-color2);
+    box-shadow: 0 0 0 3px rgba(158, 132, 110, 0.2);
+}
+
+.calculate-shipping-button {
+    padding: 12px 20px;
+    background-color: var(--detail-color1);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+.calculate-shipping-button:hover {
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+}
+
+/* NOVO CSS para o link "Não sei meu CEP" */
+.shipping-calculator .no-cep-link {
+    text-align: left; /* Alinha o texto à esquerda, se necessário */
+    margin-top: 5px; /* Espaço entre o campo de CEP e o link */
+    font-size: 0.9em;
+}
+
+.shipping-calculator .no-cep-link a {
+    color: var(--text-color); /* Use uma cor adequada do seu tema */
+    text-decoration: underline; /* Adiciona sublinhado ao link */
+    transition: color 0.2s ease;
+}
+
+.shipping-calculator .no-cep-link a:hover {
+    color: var(--detail-color2); /* Cor no hover */
+}
+
+
+#product-details {
+    padding: 40px;
+    background-color: var(--detail-color3);
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+.details-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.detail-block {
+    flex: 1;
+    min-width: 350px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.detail-block h3 {
+    font-size: 1.6em;
+    color: var(--detail-color2);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--detail-color1);
+    padding-bottom: 8px;
+}
+
+.detail-block p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.detail-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-block ul li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+.detail-block ul li::before {
+    content: "•";
+    color: var(--detail-color2);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#related-products {
+    padding: 40px 20px;
+    background-color: var(--bg-color);
+}
+
+/* --- Footer --- */
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--detail-color2); /* Usando a variável aqui */
+    gap: 20px;
+    padding: 30px 0px;
+    color: var(--detail-color3); /* Cor padrão para texto do footer */
+}
+
+footer .insert-email {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px; /* Largura definida para desktop */
+    max-width: 90%; /* Adicionado para responsividade */
+    color: var(--bg-color);
+}
+
+footer .insert-email .text-email {
+    /* Ajustes para o texto do email se necessário */
+    text-align: left; /* Alinha o texto à esquerda por padrão */
+}
+
+footer .insert-email h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px; /* Adicionado um pequeno espaçamento */
+}
+
+footer .insert-email p {
+    font-size: 0.9em; /* Ajuste o tamanho da fonte se necessário */
+    line-height: 1.4;
+}
+
+footer form {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--detail-color3);
+    border-radius: 20px;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.16);
+    flex-shrink: 0; /* Impede que o formulário encolha */
+}
+
+footer form #iemail {
+    background: none;
+    border-radius: 20px 0px 0px 20px;
+    outline: none; /* Mantém a remoção do outline */
+    border: 1px solid var(--text-color); /* Usando variável para borda */
+    width: 245px;
+    height: 40px;
+    color: var(--text-color);
+    font-size: 14px;
+    padding-left: 10px;
+    box-sizing: border-box; /* Garante que padding e borda estejam inclusos na largura */
+}
+
+/* Mantém as regras para remover outline/shadow no foco/active */
+footer form #iemail:focus,
+footer form #iemail:active {
+    outline: none;
+    border-color: var(--text-color); /* Mantém a cor da borda ao focar/ativar */
+    box-shadow: none;
+}
+
+footer form input[type="submit"] {
+    height: 40px;
+    width: 115px;
+    outline: none;
+    background-color: var(--detail-color1);
+    border-radius: 0px 20px 20px 0px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border: 1px solid var(--text-color); /* Usando variável para borda */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    color: var(--bg-color); /* Cor do texto do botão para o padrão */
+}
+
+footer form input[type="submit"]:hover {
+    background-color: var(--detail-color3); /* Alterei para uma cor que contrasta melhor */
+    cursor: pointer;
+    color: var(--detail-color2); /* Alterei para uma cor que contrasta melhor */
+    border-color: var(--detail-color3); /* Alterei a borda para combinar */
+}
+
+footer .information {
+    width: 1400px; /* Largura definida para desktop */
+    max-width: 95%; /* Adicionado para responsividade */
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    border-top: 1px solid var(--detail-color1); /* Usando variável para borda */
+    border-bottom: 1px solid var(--detail-color1); /* Usando variável para borda */
+    padding: 10px 0px;
+    color: var(--bg-color);
+}
+
+.box-information h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--detail-color3); /* Cor para os títulos das seções */
+}
+
+.box-information li img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle; /* Alinha a imagem com o texto */
+}
+
+.pay-information h3 {
+    font-weight: 400;
+}
+
+.pay-information div {
+    margin-top: 7px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.pay-information #pix-method {
+    width: 28px;
+    height: 28px;
+}
+
+.pay-information #visa-method {
+    width: 60px;
+    height: 20px;
+}
+
+.pay-information #mastercard-method {
+    width: 45px;
+    height: 25px;
+}
+
+.box-information ul {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    list-style: none;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#institucional ul {
+    gap: 20px;
+}
+
+#sos ul {
+    gap: 20px;
+}
+
+.box-information #horario {
+    margin-top: 15px; /* Aumentei um pouco a margem */
+}
+
+.box-information li a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start; /* Alinha os itens à esquerda na lista */
+    gap: 5px;
+    color: var(--bg-color);
+    text-decoration: none; /* Remove sublinhado padrão */
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.box-information li a:hover {
+    color: var(--detail-color3); /* Cor no hover para contrastar */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.114);
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+.copy {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 10px;
+    margin-top: 20px; /* Adiciona espaço acima do copyright */
+}
+
+.copy p {
+    font-weight: 400;
+    color: var(--bg-color);
+    text-align: center; /* Garante centralização em telas pequenas */
+    line-height: 1.5; /* Espaçamento entre as linhas */
+}
+
+
+/* --- Media Queries (Comum a Ambas as Páginas, com adaptações) --- */
+@media screen and (max-width: 1220px) {
+    header ul a {
+        margin: 0px 15px;
+        font-size: 0.9em;
+    }
+    #highlights {
+        height: auto;
+    }
+    .featured-cards {
+        gap: 30px;
+    }
+    #father-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .father-cards {
+        margin-right: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #product-hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .product-images, .product-info {
+        max-width: 100%;
+    }
+
+    .add-to-cart-button {
+        width: 100%;
+        max-width: none;
+    }
+
+    .details-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detail-block {
+        min-width: unset;
+    }
+
+    /* Footer adjustments for smaller screens */
+    footer .insert-email {
+        flex-direction: column; /* Coloca o texto e formulário em coluna */
+        gap: 15px;
+        text-align: center; /* Centraliza o texto */
+    }
+
+    footer .insert-email .text-email {
+        text-align: center; /* Centraliza o texto */
+    }
+
+    footer form {
+        width: 100%; /* Permite que o formulário ocupe mais espaço */
+        max-width: 350px; /* Limita para não ficar muito grande */
+    }
+
+    footer form #iemail {
+        width: calc(100% - 115px); /* Ajusta a largura do input para o botão */
+        border-radius: 20px 0px 0px 20px; /* Mantém o arredondamento */
+    }
+    footer form input[type="submit"] {
+        width: 115px; /* Mantém a largura do botão */
+        border-radius: 0px 20px 20px 0px; /* Mantém o arredondamento */
+    }
+
+
+    footer .information {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px; /* Espaçamento entre as colunas do rodapé */
+        padding: 20px 0; /* Aumenta o padding vertical */
+    }
+
+    .box-information {
+        width: 100%;
+        max-width: 300px; /* Limita a largura das colunas de informação */
+        text-align: center; /* Centraliza o texto das colunas */
+    }
+
+    .box-information ul {
+        align-items: center; /* Centraliza os itens da lista */
+    }
+
+    .box-information li a {
+        justify-content: center; /* Centraliza o conteúdo do link */
+    }
+
+    .pay-information div {
+        justify-content: center;
+    }
+
+    .copy {
+        flex-direction: column; /* Coloca o copyright em coluna */
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header form {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    header .items-nav {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    header ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 10px;
+    }
+    header ul a {
+        margin: 5px 10px;
+        font-size: 0.85em;
+    }
+
+    main {
+        padding: 15px;
+        margin-top: 180px; /* Ajuste para telas menores se o header for mais alto */
+    }
+    
+    #product-hero, #product-details, #related-products, #father-day {
+        padding: 20px;
+    }
+
+    .product-info h1 {
+        font-size: 1.8em;
+        text-align: center !important; /* Centraliza para telas menores */
+        letter-spacing: 0em !important; /* Força reset em media query também */
+        word-spacing: 0em !important; /* Força reset em media query também */
+    }
+
+    .product-price {
+        font-size: 1.8em;
+    }
+    
+    .wholesale-price, .pix-price {
+        font-size: 1.2em; /* Reduz o tamanho para telas menores */
+    }
+
+    .section-title-product {
+        font-size: 1.5em;
+    }
+    #father-day h3 {
+        font-size: 1.8em;
+    }
+    .father-themed-image {
+        height: 300px;
+        width: 250px;
+    }
+    .father-cards {
+        gap: 20px;
+    }
+    .father-card {
+        width: 200px;
+    }
+    .image-father-card {
+        height: 250px;
+    }
+
+    /* Further footer adjustments for smaller screens */
+    footer .insert-email h3 {
+        font-size: 18px;
+    }
+    footer .insert-email p {
+        font-size: 0.8em;
+    }
+    footer form {
+        max-width: 280px; /* Reduz um pouco mais para telas menores */
+    }
+    footer form #iemail {
+        width: calc(100% - 80px); /* Ajusta a largura relativa do input para o botão */
+    }
+    footer form input[type="submit"] {
+        width: 80px; /* Ajusta a largura do botão para caber */
+    }
+    .box-information h3 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 10px;
+        margin-top: 200px; /* Ajuste para telas muito pequenas */
+    }
+
+    #product-hero, #product-details, #related-products, #father-day {
+        padding: 15px;
+    }
+
+    .product-info h1 {
+        font-size: 1.5em;
+        text-align: center !important; /* Centraliza para telas menores */
+        letter-spacing: 0em !important; /* Força reset em media query também */
+        word-spacing: 0em !important; /* Força reset em media query também */
+    }
+
+    .product-price {
+        font-size: 1.5em;
+    }
+    .wholesale-price, .pix-price {
+        font-size: 1em; /* Reduz ainda mais o tamanho para telas muito pequenas */
+    }
+
+    .add-to-cart-button {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+
+    .featured-cards {
+        gap: 20px;
+    }
+
+    .highlight-card {
+        width: 90%;
+        max-width: 260px;
+    }
+    #father-day h3 {
+        font-size: 1.5em;
+    }
+    .father-themed-image {
+        height: 250px;
+        width: 200px;
+    }
+    .father-card {
+        width: 180px;
+    }
+    .image-father-card {
+        height: 200px;
+    }
+
+    /* Final footer adjustments for very small screens */
+    footer form {
+        flex-direction: column; /* Empilha input e botão verticalmente */
+        max-width: 250px;
+        gap: 10px; /* Adiciona espaçamento entre eles */
+        border-radius: 5px; /* Ajusta o arredondamento */
+        box-shadow: none; /* Remove a sombra se não for útil empilhado */
+    }
+    footer form #iemail {
+        width: 100%;
+        border-radius: 5px; /* Arredondamento total */
+    }
+    footer form input[type="submit"] {
+        width: 100%;
+        border-radius: 5px; /* Arredondamento total */
+    }
+}

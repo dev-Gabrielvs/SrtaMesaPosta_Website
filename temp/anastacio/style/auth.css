@@ -1,0 +1,828 @@
+/* Variáveis CSS */
+:root {
+    --bg-color: #DDD1C4;
+    --detail-color1: #CDB8A4;
+    --detail-color2: #9E846E;
+    --detail-color3: #E9E2DC;
+    --text-color: #5A4A3C; /* Contraste melhorado */
+    --white-text: #F8F8F8;
+    --error-color: #E74C3C;
+    --success-color: #2ECC71;
+    --focus-color: rgba(158, 132, 110, 0.3);
+    --font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+    --transition-speed: 0.3s;
+    --border-radius: 15px;
+}
+
+/* Reset e Base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    font-weight: 500;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Acessibilidade - Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--detail-color2);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Container Principal */
+.auth-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    height: 90vh;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px;
+    background-color: var(--detail-color3);
+    border-radius: var(--border-radius);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+/* Animações */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.auth-container.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Painel de Formulários */
+.form-panel {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Conteúdo dos Formulários */
+.form-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background-color: var(--detail-color3);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+.form-content.login {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.form-content.register {
+    position: relative; /* Adicionar isso para criar um novo contexto de posicionamento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background-color: var(--detail-color3);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estilização da barra de rolagem */
+.form-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.form-content::-webkit-scrollbar-thumb {
+    background-color: var(--detail-color2);
+    border-radius: 3px;
+}
+
+/* Ajuste específico para o formulário de recuperação de senha */
+.form-content.forgot-password-form {
+    background: var(--detail-color3);
+    max-width: 450px;
+    width: 90%;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.form-content.forgot-password-form .logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.form-content.forgot-password-form h1 {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.form-content.forgot-password-form .instruction-text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 320px;
+    margin: 0 auto 30px;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgba(205, 184, 164, 0.15), rgba(158, 132, 110, 0.15));
+    border-radius: 10px;
+}
+
+.form-content.forgot-password-form form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Reset sticky positioning for register form */
+.form-content.register .logo,
+.form-content.register h1 {
+    position: relative;
+    top: auto;
+    background: none;
+    padding: 0;
+    z-index: 1;
+}
+
+/* Fixar Logo e Título */
+.form-content .logo {
+    position: sticky;
+    top: 0;
+    background-color: var(--detail-color3);
+    padding: 20px 0;
+    z-index: 10;
+}
+
+.form-content h1 {
+    position: sticky;
+    top: 80px;
+    background-color: var(--detail-color3);
+    padding: 10px 0;
+    z-index: 10;
+}
+
+/* Estilos para formulários ativos */
+.form-panel.register-active {
+    transform: translateX(100%);
+}
+
+.form-panel.register-active .form-content.login {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.form-panel.register-active .form-content.register {
+    transform: translateX(0);
+    opacity: 1;
+    display: flex;
+}
+
+/* Estados Ativos */
+.auth-container.register-active .form-panel {
+    transform: translateX(100%);
+}
+
+.auth-container.register-active .form-content.login {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.auth-container.register-active .form-content.register {
+    transform: translateX(0);
+    opacity: 1;
+    display: flex;
+}
+
+/* Ajuste no overlay */
+.overlay-panel {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-container.register-active .overlay-panel {
+    transform: translateX(-100%);
+}
+
+/* Elementos do Formulário */
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilo elegante para headings do overlay */
+.overlay-panel h2 {
+    color: var(--white-text);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.overlay-panel h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--white-text);
+    transition: all 0.4s ease;
+}
+
+/* Estilo elegante para o texto do overlay */
+.overlay-panel p {
+    color: var(--white-text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+
+.overlay-panel p::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.4s ease;
+}
+
+/* Efeito hover combinado */
+.overlay-panel:hover h2::after {
+    width: 80px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.overlay-panel:hover p::after {
+    width: 50px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Ajuste no espaçamento */
+.overlay-left,
+.overlay-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-group {
+    position: relative;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid var(--detail-color1);
+    border-radius: 5px 5px 0 0;
+    outline: none;
+    transition: 
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    min-height: 35px;
+}
+
+.input-group input:focus {
+    border-color: var(--detail-color2);
+    box-shadow: 0 0 0 3px var(--focus-color);
+}
+
+.input-group.success input {
+    border-color: var(--success-color);
+}
+
+.input-group.error input {
+    border-color: var(--error-color);
+}
+
+.input-group i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group .success-icon {
+    color: var(--success-color);
+}
+
+.input-group .error-icon {
+    color: var(--error-color);
+}
+
+.input-group.success .success-icon,
+.input-group.error .error-icon {
+    opacity: 1;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.75rem;
+    margin-top: 5px;
+    display: none;
+    text-align: left;
+}
+
+.input-group.error .error-message {
+    display: block;
+}
+
+/* Links e Botões */
+.forgot-password,
+.back-to-login {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+.back-to-login {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--detail-color2);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.back-to-login:hover {
+    color: var(--detail-color1);
+    text-decoration: underline;
+}
+
+.forgot-password:hover,
+.back-to-login:hover {
+    color: var(--detail-color2);
+    text-decoration: underline;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--detail-color2);
+    color: var(--white-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    min-height: 45px;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: var(--detail-color1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.button-text {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.spinner.visible {
+    opacity: 1;
+}
+
+/* Ghost Button Styles */
+.ghost-button {
+    background-color: transparent;
+    border: 2px solid var(--white-text);
+    color: var(--white-text);
+    padding: 12px 45px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: auto;
+    min-width: 200px;
+}
+
+.ghost-button:hover {
+    background-color: var(--white-text);
+    color: var(--detail-color2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ghost-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+.ghost-button:active {
+    transform: translateY(0);
+}
+
+/* Painel Overlay */
+.overlay-panel {
+    position: relative;
+    width: 50%;
+    height: auto;
+    background: linear-gradient(135deg, var(--detail-color2), var(--detail-color1));
+    color: var(--white-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Estados do formulário de recuperação de senha */
+.auth-container.forgot-password-active .overlay-panel {
+    display: none;
+}
+
+.auth-container.forgot-password-active .form-panel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--detail-color2), var(--detail-color1));
+}
+
+.form-content.forgot-password-form {
+    background: var(--detail-color3);
+    max-width: 450px;
+    width: 90%;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.form-content.forgot-password-form .logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.form-content.forgot-password-form h1 {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.form-content.forgot-password-form .instruction-text {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 320px;
+    margin: 0 auto 30px;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, rgba(205, 184, 164, 0.15), rgba(158, 132, 110, 0.15));
+    border-radius: 10px;
+}
+
+.form-content.forgot-password-form form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Ajuste no conteúdo do formulário de registro */
+.form-content.register {
+    position: relative; /* Adicionar isso para criar um novo contexto de posicionamento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background-color: var(--detail-color3);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-content.register .header-sticky {
+    position: sticky;
+    top: 0;
+    background-color: var(--detail-color3);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.form-content.register .logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    position: static; /* Remover posição sticky individual */
+}
+
+.form-content.register h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    position: static; /* Remover posição sticky individual */
+    width: 100%;
+    text-align: center;
+}
+
+.form-content.register form {
+    margin-top: 20px; /* Adicionar margem para separar do cabeçalho fixo */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilização dos campos do formulário de registro */
+.form-content.register .input-group {
+    margin-bottom: 15px;
+}
+
+.form-content.register .input-group label {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-content.register .input-group input {
+    background-color: var(--detail-color3);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.form-content.register .input-group input:focus {
+    border-color: var(--detail-color2);
+    background-color: white;
+}
+
+/* Ajuste no checkbox dos termos */
+.form-content.register .checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.form-content.register .checkbox-group input[type="checkbox"] {
+    width: auto;
+    min-height: auto;
+    margin-top: 5px;
+}
+
+.form-content.register .checkbox-group label {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.form-content.register .checkbox-group a {
+    color: var(--detail-color2);
+    text-decoration: none;
+}
+
+.form-content.register .checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+/* Ajuste no botão de submit do registro */
+.form-content.register .submit-button {
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .auth-container {
+        height: auto;
+        max-height: none;
+    }
+
+    .form-panel {
+        width: 100%;
+    }
+
+    .form-content {
+        padding: 20px;
+    }
+    
+    .form-content.register {
+        padding: 20px;
+    }
+    
+    .form-content.register .logo {
+        width: 100px;
+    }
+    
+    .form-content.register h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .form-content.forgot-password-form {
+        width: 100%;
+        padding: 30px 20px;
+        margin: 10px;
+    }
+}
+.auth-container.forgot-password-active .form-content.forgot-password-form {
+    display: flex; /* Força exibição */
+    opacity: 1;    /* Garante visibilidade */
+}

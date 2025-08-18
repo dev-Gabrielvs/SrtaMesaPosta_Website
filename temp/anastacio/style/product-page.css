@@ -1,0 +1,962 @@
+@charset "UTF-8";
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Creation of Variables */
+:root {
+    --bg-color:#DDD1C4;
+    --detail-color1:#CDB8A4;
+    --detail-color2:#9E846E;
+    --detail-color3:#E9E2DC;
+    --text-color:#7E6C5C;
+    --font-over:"Montserrat", sans-serif;
+}
+
+/* Reset CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-family: var(--font-over);
+}
+
+/* Configuration of bg */
+body, html {
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+/* --- Header (Comum a Ambas as Páginas) --- */
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding-bottom: 5px;
+}
+header h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    font-weight: bold;
+    padding: 2px;
+    white-space: nowrap; /* Impede a quebra de linha forçada */
+    overflow: hidden; /* Oculta qualquer conteúdo que exceda a largura */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+    letter-spacing: normal; /* Garante que o espaçamento entre letras seja o padrão */
+}
+
+#logo {
+    width: 120px;
+}
+
+form{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--detail-color3);
+    padding: 5px;
+    border-radius: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+form input[type="text"] {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: calc(100% - 30px);
+    height: 30px;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 14.5px;
+    padding-left: 10px;
+}
+
+#submit {
+    width: 25px;
+    height: 25px;
+    border: none;
+    outline: none;
+    background: url(../images/search.png) center/cover no-repeat;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#submit:hover {
+    width: 28px;
+    height: 27px;
+    transition: .3s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 15px;
+    padding: 10px 0;
+}
+
+.items-nav {
+    display: flex;
+    gap:20px;
+
+}
+
+.item a {
+    color: #7E6C5C;
+    text-decoration: none;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.item a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-top: 3px;
+    border-width: 1px 0px 0px 0px;
+    border-color: var(--detail-color2);
+    border-style: solid;
+    padding: 5px;
+    background-color: var(--detail-color3);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+header ul a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0px 35px;
+    padding: 5px 0;
+}
+
+header ul a:hover {
+    color: var(--detail-color1);
+    text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.41);
+}
+
+header ul li:hover {
+    cursor: pointer;
+}
+
+/* --- Main Section Common Styling --- */
+main {
+    margin-top: 137px;
+    padding: 40px 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* --- Seções Específicas da Landing Page --- */
+#carrossel {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 450px;
+    background-color: white;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 10px;
+}
+
+#highlights h1, .section-title-product {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-color);
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+.featured-cards {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 15px;
+    height: auto;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    background-color: white;
+    width: 260px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+.image-highlight-card {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.footer-highlight-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    background-color: var(--detail-color1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.highlight-card .footer-highlight-card {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer-highlight-card .legend {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.footer-highlight-card .price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--detail-color2);
+    margin-bottom: 10px;
+}
+
+#details-button {
+    width: 85%;
+    height: 40px;
+    margin-top: 5px;
+    display: block;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#details-button:hover {
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    border-color: var(--detail-color2);
+}
+
+#father-day {
+    background-color: #E0D7CF;
+    padding: 40px 20px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+#father-day h3 {
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+#father-content {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 25px;
+}
+
+.father-themed-image {
+    height: 400px;
+    width: 320px;
+    border: 3px solid var(--detail-color2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.father-cards {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 260px;
+    border: 1px solid var(--detail-color1);
+    padding: 7px;
+    gap: 8px;
+    background-color: white;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.father-card:hover {
+    box-shadow: 3px 4px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+
+.image-father-card {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.footer-father-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    background-color: var(--detail-color1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 0px 0px 8px 8px;
+    color: var(--text-color);
+}
+
+
+/* --- Seções Específicas da Página de Produto --- */
+#product-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 40px;
+    background-color: var(--detail-color3);
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 60px;
+}
+
+.product-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 550px;
+}
+
+#main-product-image {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-gallery {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.thumbnail:hover, .thumbnail.active {
+    border-color: var(--detail-color2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.product-info {
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Alteração para o h1 problemático */
+.product-info h1 {
+    font-size: 2.8em;
+    color: var(--text-color);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    text-align: left !important;
+    letter-spacing: 0em !important; /* Definido explicitamente para 0 */
+    word-spacing: 0em !important; /* Definido explicitamente para 0 */
+    white-space: normal !important;
+    max-width: 100%; /* Garante que o container do h1 não está sendo esticado demais */
+    display: inline-block; /* Altera para inline-block para que o text-align: left seja mais eficaz em uma linha curta */
+}
+
+
+.product-price {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--detail-color2);
+    margin-top: -10px;
+    letter-spacing: 0.5px;
+}
+
+.product-description-short {
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.product-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.product-options label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1.05em;
+}
+
+.product-options select,
+.product-options input[type="number"] {
+    padding: 12px 18px;
+    border: 1px solid var(--detail-color1);
+    border-radius: 8px;
+    font-size: 1.05em;
+    color: var(--text-color);
+    background-color: white;
+    width: 100%;
+    max-width: 250px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-options select:focus,
+.product-options input[type="number"]:focus {
+    border-color: var(--detail-color2);
+    box-shadow: 0 0 0 3px rgba(158, 132, 110, 0.2);
+}
+
+.add-to-cart-button {
+    width: 90%;
+    max-width: 350px;
+    padding: 18px 25px;
+    margin-top: 30px;
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.add-to-cart-button:hover {
+    background-color: var(--detail-color1);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#product-details {
+    padding: 40px;
+    background-color: var(--detail-color3);
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+}
+
+.details-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.detail-block {
+    flex: 1;
+    min-width: 350px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.detail-block h3 {
+    font-size: 1.6em;
+    color: var(--detail-color2);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--detail-color1);
+    padding-bottom: 8px;
+}
+
+.detail-block p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.detail-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-block ul li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+.detail-block ul li::before {
+    content: "•";
+    color: var(--detail-color2);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#related-products {
+    padding: 40px 20px;
+    background-color: var(--bg-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--detail-color2);
+    color: var(--detail-color3);
+    padding: 40px 20px 15px;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    flex: 1 1 auto;
+    min-width: 180px;
+    max-width: 250px;
+    padding: 10px;
+}
+
+.footer-title {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--detail-color3);
+}
+
+.footer-column p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Newsletter Form Styling */
+.newsletter-column .footer-subtitle {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.newsletter-form {
+    display: flex; /* Transforma em flexbox para alinhar itens na mesma linha */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    gap: 10px; /* Espaçamento entre o input e o botão */
+    width: 100%; /* Garante que o formulário ocupe a largura total disponível */
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1; /* Permite que o input cresça para preencher o espaço */
+    min-width: 150px; /* Largura mínima para o input antes de quebrar linha */
+    padding: 10px 15px;
+    border: 1px solid var(--detail-color1);
+    border-radius: 5px; /* Arredondamento para ambos os lados */
+    background-color: var(--detail-color3);
+    color: var(--text-color);
+    outline: none;
+    font-size: 0.95em;
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.newsletter-form button {
+    padding: 10px 15px;
+    background-color: var(--detail-color1);
+    color: var(--detail-color3);
+    border: none;
+    border-radius: 5px; /* Arredondamento para ambos os lados */
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Impede que o botão encolha */
+}
+
+.newsletter-form button:hover {
+    background-color: var(--bg-color);
+    color: var(--detail-color2);
+}
+
+/* Estilo para a mensagem de erro (se o input for invalid) */
+.newsletter-form input[type="email"]:invalid + button + span {
+    color: red; /* Cor da mensagem de erro */
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: block; /* Garante que a mensagem fique em uma nova linha */
+    width: 100%;
+}
+
+
+/* List Styling (Contato, Institucional, Minha Conta) */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+}
+
+.footer-column ul li .material-icons {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: var(--detail-color3);
+}
+
+.footer-column ul li a {
+    color: var(--detail-color3);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: var(--detail-color1);
+    text-decoration: underline;
+}
+
+/* Social Media Icons Styling */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Copyright Bar */
+.footer-copyright {
+    text-align: center;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85em;
+}
+
+
+/* --- Media Queries (Comum a Ambas as Páginas, com adaptações) --- */
+@media screen and (max-width: 1220px) {
+    header ul a {
+        margin: 0px 15px;
+        font-size: 0.9em;
+    }
+    #highlights {
+        height: auto;
+    }
+    .featured-cards {
+        gap: 30px;
+    }
+    #father-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .father-cards {
+        margin-right: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #product-hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .product-images, .product-info {
+        max-width: 100%;
+    }
+
+    .add-to-cart-button {
+        width: 100%;
+        max-width: none;
+    }
+
+    .details-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detail-block {
+        min-width: unset;
+    }
+
+    /* Footer adjustments for smaller screens */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-column {
+        min-width: 90%;
+        max-width: 400px;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .footer-column ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column ul li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .newsletter-form {
+        flex-direction: row; /* Volta a ser row para telas maiores */
+        flex-wrap: wrap; /* Mantém o wrap */
+        justify-content: center; /* Centraliza o formulário */
+    }
+
+    .newsletter-form input[type="email"] {
+        border-radius: 5px; /* Mantém o arredondamento */
+        margin-bottom: 0; /* Remove a margem extra em telas maiores */
+        max-width: 200px; /* Limita a largura do input em telas maiores */
+    }
+
+    .newsletter-form button {
+        border-radius: 5px; /* Mantém o arredondamento */
+        width: auto; /* Permite que o botão tenha largura automática */
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header form {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    header .items-nav {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    header ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 10px;
+    }
+    header ul a {
+        margin: 5px 10px;
+        font-size: 0.85em;
+    }
+
+    main {
+        padding: 15px;
+    }
+    
+    #product-hero, #product-details, #related-products, #father-day {
+        padding: 20px;
+    }
+
+    .product-info h1 {
+        font-size: 1.8em;
+        text-align: center !important; /* Centraliza para telas menores */
+        letter-spacing: 0em !important; /* Força reset em media query também */
+        word-spacing: 0em !important; /* Força reset em media query também */
+    }
+
+    .product-price {
+        font-size: 1.8em;
+    }
+
+    .section-title-product {
+        font-size: 1.5em;
+    }
+    #father-day h3 {
+        font-size: 1.8em;
+    }
+    .father-themed-image {
+        height: 300px;
+        width: 250px;
+    }
+    .father-cards {
+        gap: 20px;
+    }
+    .father-card {
+        width: 200px;
+    }
+    .image-father-card {
+        height: 250px;
+    }
+
+    /* Adjustments for newsletter form on smaller screens */
+    .newsletter-form {
+        flex-direction: column; /* Volta para coluna em telas muito pequenas */
+        align-items: center; /* Centraliza os itens */
+        gap: 10px; /* Mantém o espaçamento */
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 250px; /* Limita a largura máxima */
+    }
+
+    .newsletter-form button {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 250px; /* Limita a largura máxima */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+
+    #product-hero, #product-details, #related-products, #father-day {
+        padding: 15px;
+    }
+
+    .product-info h1 {
+        font-size: 1.5em;
+        text-align: center !important; /* Centraliza para telas menores */
+        letter-spacing: 0em !important; /* Força reset em media query também */
+        word-spacing: 0em !important; /* Força reset em media query também */
+    }
+
+    .product-price {
+        font-size: 1.5em;
+    }
+
+    .add-to-cart-button {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+
+    .featured-cards {
+        gap: 20px;
+    }
+
+    .highlight-card {
+        width: 90%;
+        max-width: 260px;
+    }
+    #father-day h3 {
+        font-size: 1.5em;
+    }
+    .father-themed-image {
+        height: 250px;
+        width: 200px;
+    }
+    .father-card {
+        width: 180px;
+    }
+    .image-father-card {
+        height: 200px;
+    }
+
+    /* Further adjustments for newsletter form on very small screens */
+    .newsletter-form input[type="email"],
+    .newsletter-form button {
+        max-width: 100%; /* Ocupa 100% da largura em telas muito pequenas */
+    }
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acesso premium Srta Mesa Posta - Faça login ou cadastre-se">
+    <title>Srta Mesa Posta - Acesso </title>
+    
+    <!-- Pré-conexão para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style/auth.css">
+    
+    <!-- Pré-carregar recursos críticos -->
+    <link rel="preload" href="./js/auth.js" as="script">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+    
+    <div class="auth-container" id="auth-container">
+        <!-- Painel de Formulários -->
+        <div class="form-panel">
+            <!-- Login -->
+            <div class="form-content login" role="tabpanel" aria-labelledby="signIn">
+                <img src="../productpage/imagens/srta mp logo.png" alt="Srta Mesa Posta" class="logo" width="120" height="40" loading="lazy">
+                <h1 id="login-heading">FAÇA SEU LOGIN</h1>
+                <form id="login-form" novalidate>
+                    <div class="input-group">
+                        <label for="login-email">E-mail</label>
+                        <input type="email" id="login-email" name="email" placeholder="seuemail@exemplo.com" 
+                               aria-describedby="login-email-help" required autocomplete="username">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="login-email-help" class="error-message" role="alert"></small>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" name="password" placeholder="Mínimo 8 caracteres" 
+                               minlength="8" required autocomplete="current-password">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small class="error-message" role="alert"></small>
+                    </div>
+                    <a href="#" class="forgot-password" id="forgot-password-link">Esqueceu sua senha?</a>
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">ENTRAR</span>
+                        <span class="spinner hidden" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Cadastro -->
+            <div class="form-content register" role="tabpanel" aria-labelledby="signUp">
+                <img src="../productpage/imagens/srta mp logo.png"alt="Srta Mesa Posta" class="logo" width="120" height="40" loading="lazy">
+                <h1 id="register-heading">CRIE SUA CONTA</h1>
+                <form id="register-form" novalidate>
+                    <div class="input-group">
+                        <label for="register-name">Nome Completo</label>
+                        <input type="text" 
+                               id="register-name" 
+                               name="name" 
+                               placeholder="Seu nome completo" 
+                               required
+                               aria-describedby="register-name-error">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-name-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-email">E-mail</label>
+                        <input type="email" 
+                               id="register-email" 
+                               name="email" 
+                               placeholder="seuemail@exemplo.com" 
+                               required
+                               aria-describedby="register-email-error">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-email-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-password">Senha</label>
+                        <input type="password" 
+                               id="register-password" 
+                               name="password" 
+                               placeholder="Mínimo 8 caracteres" 
+                               minlength="8" 
+                               required 
+                               autocomplete="new-password"
+                               aria-describedby="register-password-error"
+                               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-password-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-password-confirm">Confirmar Senha</label>
+                        <input type="password" 
+                               id="register-password-confirm" 
+                               name="password_confirmation" 
+                               placeholder="Digite a senha novamente" 
+                               required
+                               aria-describedby="register-password-confirm-error">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-password-confirm-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-cpf">CPF</label>
+                        <input type="text" 
+                               id="register-cpf" 
+                               name="cpf" 
+                               placeholder="000.000.000-00" 
+                               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+                               required
+                               maxlength="14"
+                               aria-describedby="register-cpf-error">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-cpf-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-cep">CEP</label>
+                        <input type="text" 
+                               id="register-cep" 
+                               name="cep" 
+                               placeholder="00000-000" 
+                               pattern="\d{5}-\d{3}"
+                               required
+                               maxlength="9"
+                               aria-describedby="register-cep-error">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-cep-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="register-address">Endereço</label>
+                        <input type="text" 
+                               id="register-address" 
+                               name="address" 
+                               placeholder="Rua, Nº" 
+                               required
+                               aria-describedby="register-address-error">
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small id="register-address-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <div class="input-group checkbox-group">
+                        <input type="checkbox" 
+                               id="register-terms" 
+                               name="terms" 
+                               required
+                               aria-describedby="register-terms-error">
+                        <label for="register-terms">
+                            Li e aceito os <a href="/terms" target="_blank">Termos de Uso</a> e a 
+                            <a href="/privacy" target="_blank">Política de Privacidade</a>
+                        </label>
+                        <small id="register-terms-error" class="error-message" role="alert"></small>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">CADASTRAR</span>
+                        <span class="spinner hidden" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Recuperação de Senha -->
+            <div class="form-content forgot-password-form" role="tabpanel" hidden>
+                <img src="../productpage/imagens/srta mp logo.png" alt="Srta Mesa Posta" class="logo" width="120" height="40" loading="lazy">
+                <h1 id="forgot-heading">RECUPERAR SENHA</h1>
+                <form id="forgot-password-form" novalidate>
+                    <p class="instruction-text">Informe seu e-mail para enviarmos as instruções de recuperação de senha.</p>
+                    <div class="input-group">
+                        <label for="forgot-email">E-mail</label>
+                        <input type="email" id="forgot-email" name="email" placeholder="seuemail@exemplo.com" required>
+                        <i class="fas fa-check-circle success-icon" aria-hidden="true"></i>
+                        <i class="fas fa-exclamation-circle error-icon" aria-hidden="true"></i>
+                        <small class="error-message" role="alert"></small>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">ENVIAR INSTRUÇÕES</span>
+                        <span class="spinner hidden" aria-hidden="true"></span>
+                    </button>
+                    <a href="#" class="back-to-login" id="back-to-login-link">Voltar ao Login</a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Painel Overlay -->
+        <div class="overlay-panel">
+            <!-- Quando estiver no Login -->
+            <div class="overlay-right">
+                <h2>Novo por aqui?</h2>
+                <p>Insira seus dados pessoais e comece sua jornada conosco.</p>
+                <button class="ghost-button" 
+                        id="signUp" 
+                        type="button"
+                        aria-controls="register"
+                        aria-expanded="false">
+                    Cadastrar
+                </button>
+            </div>
+            <!-- Quando estiver no Cadastro -->
+            <div class="overlay-left">
+                <h2>Já tem uma conta?</h2>
+                <p>Para se manter conectado conosco, faça login com suas informações pessoais.</p>
+                <button class="ghost-button" 
+                        id="signIn" 
+                        type="button"
+                        aria-controls="login"
+                        aria-expanded="false">
+                    Voltar ao Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/auth.js" defer></script>
+</body>
+</html>
