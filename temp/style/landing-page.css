@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-@media screen and (max-width:1220px) {
-    #highlights {
-        height: 910px;
-    }
-
-    .featured-cards {
-        margin-top: 20px;
-    }
-}
 
 
 /* Import Font */
@@ -58,7 +49,6 @@ header h4 {
 
 a {
     text-decoration: none;
-    color: black;
 }
 
 #logo {
@@ -69,21 +59,18 @@ nav form{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
     background-color: var(--detail-color3);
     padding: 5px;
     border-radius: 10px;
-    width: 300px;
-    height: 40px;
 }
 
 
-nav form input[type="text"] {
+nav form #search-box {
     background-color: transparent;
     border: none;
     outline: none;
-    width: 300px;
-    height: 40px;
+    margin-right: 15px;
+    height: 35px;
     border-radius: 5px;
     color: var(--text-color);
     font-size: 14.5px;
@@ -564,7 +551,7 @@ footer .insert-email {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    width: 1000px;
+    gap: 180px;
     color: var(--bg-color);
 }
 
@@ -718,6 +705,39 @@ footer .information {
 
 /* Footer End */
 
+@media screen and (max-width:1220px) {
+    #highlights {
+        height: 910px;
+    }
+
+    .featured-cards {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    footer .information {
+        gap: 30px
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #attendance, #profile {
+        display: none;
+    }
+
+    #shop a p {
+        display: none;
+    }
+
+    #shop span {
+        font-size: 1.7em;
+    }
+
+    
+
+
+}
 
 
 
