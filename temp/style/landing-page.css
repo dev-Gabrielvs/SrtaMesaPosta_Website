@@ -49,16 +49,18 @@ header h4 {
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 #logo {
-    width: 120px;
+    width: 130px;
 }
 
 nav form{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    justify-content: space-between;
     background-color: var(--detail-color3);
     padding: 5px;
     border-radius: 10px;
@@ -69,26 +71,27 @@ nav form #search-box {
     background-color: transparent;
     border: none;
     outline: none;
-    margin-right: 15px;
+    padding: 10px;
     height: 35px;
+    width: 100%;
     border-radius: 5px;
     color: var(--text-color);
     font-size: 14.5px;
 }
+
+nav #hamburguer-container, #hamburguer-menu {display: none;}
+
 
 #submit {
     width: 25px;
     height: 25px;
     border: none;
     outline: none;
-    background: url(../images/search.png) center/cover no-repeat;
+    background: url(../images/search.png) center/contain no-repeat;
 }
 
 #submit:hover {
     cursor: pointer;
-    width: 28px;
-    height: 27px;
-    transition: .3s;
 }
 
 
@@ -734,8 +737,61 @@ footer .information {
         font-size: 1.7em;
     }
 
-    
+    nav {
+        display: grid;
+        grid-template: repeat(2, 70px) / 1fr 2fr 1fr;
+    }
 
+    /* 40px 260px 40px */
+
+    nav #hamburguer-container {
+        display: block;
+        background: none;
+        outline: none;
+        border: none;
+        justify-self: start;
+    }
+
+    nav #hamburguer-menu {
+        display: block;
+        color: var(--text-color);
+        font-size: 1.9em;
+    }
+
+    nav #hamburguer-menu:hover {
+        color: var(--detail-color1);
+        cursor: pointer;
+    }
+
+    nav form {
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+    }
+
+    nav .items-nav {
+        justify-self: end;
+    }
+
+    #link-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-column: 2/ 3;
+        grid-row: 1 / 2;
+
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    header ul {
+        display: none;
+    }
+    
+    main {
+        margin-top: 110px;
+    }
 
 }
 
