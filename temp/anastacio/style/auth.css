@@ -826,3 +826,42 @@ form {
     display: flex; /* Força exibição */
     opacity: 1;    /* Garante visibilidade */
 }
+
+/* Container geral do input para garantir posição relativa */
+.input-group {
+    position: relative;
+}
+
+/* Ícone de erro (vermelho) */
+.input-group .error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #dc3545; /* vermelho */
+    pointer-events: none; /* para não interferir no click */
+}
+
+/* Ícone de sucesso (verde) */
+.input-group .success-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #28a745; /* verde */
+    pointer-events: none;
+}
+
+/* Ajuste específico para o campo de confirmação de senha, se quiser destacar */
+#register-password-confirm ~ .success-icon,
+#register-password-confirm ~ .error-icon {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Se precisar, ajuste o tamanho do ícone */
+.input-group .success-icon,
+.input-group .error-icon {
+    font-size: 18px;
+}
