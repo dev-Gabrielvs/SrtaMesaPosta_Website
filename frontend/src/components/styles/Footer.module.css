@@ -1,0 +1,176 @@
+.footer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #9E846E;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+/* Insert Email */
+.insertEmail {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+  color: var(--bg-color);
+}
+
+.insertEmail h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--detail-color3);
+  border-radius: 20px;
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+.inputEmail {
+  background: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  width: 245px;
+  height: 40px;
+  color: var(--text-color);
+  font-size: 14px;
+  padding-left: 10px;
+  border: 1px solid black;
+}
+
+.submit {
+  height: 40px;
+  width: 115px;
+  outline: none;
+  background-color: var(--detail-color1);
+  border-radius: 0 20px 20px 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  border: 1px solid black;
+  transition: background-color 0.2s ease;
+}
+
+.submit:hover {
+  background-color: var(--detail-color2);
+  cursor: pointer;
+  color: var(--bg-color);
+  transition: background-color 0.2s ease
+}
+
+/* Information */
+.information {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  border-top: 1px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px 0;
+  color: var(--bg-color);
+  gap: 80px;
+}
+
+.boxInformation li img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Pagamento */
+.payInformation {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.payInformation h3 {
+  font-weight: 400;
+}
+
+.pixMethod {  /**/
+  width: 28px;
+  height: 28px;
+}
+
+.visaMethod { /**/  
+  width: 60px;
+  height: 20px;
+}
+
+.mastercardMethod { /**/
+  width: 45px;
+  height: 25px;
+}
+
+.boxInformation ul {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  list-style: none;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.boxInformation .horario {
+  margin-top: 10px;
+}
+
+.boxInformation li a {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.boxInformation li a:hover {
+  color: var(--text-color);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.114);
+}
+
+.boxInformation h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+/* Copy */
+.copy {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 10px;
+}
+
+.copy p {
+  font-weight: 400;
+  color: var(--bg-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+

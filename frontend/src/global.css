@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@media screen and (max-width:1220px) {
+    #highlights {
+        height: 910px;
+    }
+
+    .featured-cards {
+        margin-top: 20px;
+    }
+}
+
+
+
+/* Creation of Variables */
+:root {
+    --bg-color:#DDD1C4;
+    --detail-color1:#CDB8A4;
+    --detail-color2:#9E846E;
+    --detail-color3:#E9E2DC;
+    --text-color:#7E6C5C;
+    --font-over:"Montserrat", sans-serif;
+}
+
+/* Reset CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-weight: 500;
+    font-family: var(--font-over);
+}
+
+/* Configuration of bg */
+body, html {
+    background-color: var(--bg-color);
+}
+
+main {
+    text-align: justify ;
+    margin-top: 137px;
+}
